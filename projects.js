@@ -143,4 +143,121 @@ window.portfolioProjects = {
       },
     ],
   },
+  "parallel-qoi": {
+    title: "Parallel QOI",
+    type: "Parallel & distributed computing · Team project",
+    tools: ["C++", "OpenMP", "CUDA", "MPI", "Electron", "React"],
+    summary:
+      "A lossless image encoder that explores parallel and distributed computing through the Quite OK Image format, with a desktop dashboard for conversion and performance comparisons.",
+    role: "Team member",
+    focus: "The following describes the shared project and its features.",
+    heading: "Project features",
+    details: [
+      "Serial, OpenMP, CUDA, and MPI backends encode RGB and RGBA images into standards-compliant QOI files.",
+      "A two-pass approach summarises segment state, propagates entry states, and assembles parallel output in order.",
+      "A React and Electron dashboard provides image conversion, decoded previews, and pixel validation.",
+      "Backend comparisons show runtime, throughput, and phase breakdowns to explore computation, transfer, and communication costs.",
+    ],
+    repo: "https://github.com/KJiShou/parallel-qoi",
+    repoLabel: "View team repository",
+    credit: "https://kjishou.github.io/Portfolio/",
+    creditLabel: "Team screenshots · Kong Ji Shou",
+    images: [
+      {
+        src: "assets/parallel-qoi-convert.png",
+        label: "Convert",
+        alt: "Parallel QOI desktop conversion interface with source and decoded image previews",
+        caption:
+          "Convert images and validate that decoded pixels match the source.",
+      },
+      {
+        src: "assets/parallel-qoi-compare.png",
+        label: "Compare",
+        alt: "Parallel QOI backend comparison dashboard",
+        caption:
+          "Compare serial, shared-memory, GPU, and distributed encoding backends.",
+      },
+    ],
+  },
+  "fly-me-to-the-earth": {
+    title: "Fly Me 2 The Earth",
+    type: "Game programming · Team project",
+    tools: ["C++", "DirectX 9", "DirectInput", "FMOD"],
+    summary:
+      "A C++ spaceflight game where players navigate asteroids and linked portals, built with custom rendering, input, physics, and scene systems.",
+    role: "Team member",
+    focus: "The following describes the shared project and its features.",
+    heading: "Project features",
+    details: [
+      "Spaceflight gameplay combines asteroid navigation, linked portals, and a countdown.",
+      "Direct3D 9 sprite rendering supports textures, transforms, and sprite-sheet animation.",
+      "Reusable game objects, physics components, and scene management bring the gameplay systems together.",
+      "Keyboard and mouse input, FMOD audio, and pause, resume, and restart controls support the game loop.",
+    ],
+    repo: "https://github.com/KJiShou/CGP_Assignment",
+    repoLabel: "View team repository",
+    credit: "https://kjishou.github.io/Portfolio/",
+    creditLabel: "Team screenshots · Kong Ji Shou",
+    images: [
+      {
+        src: "assets/fly-me-gameplay.png",
+        label: "Spaceflight",
+        alt: "Fly Me 2 The Earth spaceflight gameplay with asteroids and portals",
+        caption:
+          "Navigate a space environment with asteroids and linked portals.",
+      },
+      {
+        src: "assets/fly-me-menu.png",
+        label: "Main menu",
+        alt: "Fly Me 2 The Earth main menu",
+        caption: "The game's main menu introduces its spaceflight setting.",
+      },
+      {
+        src: "assets/fly-me-pause.png",
+        label: "Pause",
+        alt: "Fly Me 2 The Earth pause menu",
+        caption: "Pause controls provide resume and restart options.",
+      },
+    ],
+  },
+  "spam-classifier": {
+    title: "Spam Message Classifier",
+    type: "Artificial intelligence · Team project",
+    tools: ["Python", "scikit-learn", "pandas", "Tkinter", "TF-IDF"],
+    summary:
+      "A desktop machine learning application for exploring spam detection through supervised classifiers and unsupervised clustering.",
+    role: "Desktop interface development",
+    focus:
+      "Built the Tkinter interface for entering messages, choosing algorithms, and presenting model results.",
+    heading: "Interface & project features",
+    details: [
+      "A Tkinter interface accepts a message and lets users choose a model or compare prediction results.",
+      "Naive Bayes and SVM classify messages using TF-IDF features, with predictions and model accuracy shown in the interface.",
+      "K-Means provides cluster-based predictions; DBSCAN reports dataset-level clusters and noise points.",
+      "The shared Python pipeline cleans the message dataset, creates TF-IDF vectors, and trains the classification and clustering models.",
+    ],
+    repo: "https://github.com/zwzenre/ArtificialIntelligenceAssignment",
+    repoLabel: "View team repository",
+    images: [],
+  },
+  "eoe-customer-support": {
+    title: "EOE Customer Support",
+    type: "Android development · Team project",
+    tools: ["Kotlin", "Jetpack Compose", "Firebase", "Room"],
+    summary:
+      "An Android customer support app that connects customer enquiries with a staff ticket workflow, account management, and FAQ assistance.",
+    role: "Team member",
+    focus: "The following describes the shared project and its features.",
+    heading: "Project features",
+    details: [
+      "Customer and staff sign-in flows lead to separate support interfaces.",
+      "Customers create support tickets with image attachments and view their submitted tickets.",
+      "Staff review tickets using Pending, In Progress, and Resolved status filters.",
+      "Jetpack Compose screens connect account, ticket, chat, and FAQ features with Firebase services and local Room persistence.",
+    ],
+    repo: "https://github.com/hahahahaha598/EOE-Customer-Support",
+    repoLabel: "Private GitHub repository",
+    repoNote: "Repository access is required to view the source.",
+    images: [],
+  },
 };

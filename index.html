@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#070b16" />
     <meta
       name="description"
-      content="Heng Wei Yi's game development portfolio. Explore Calculus Lab Escape, Unity gameplay, VR fishing, weather simulation, and OpenGL graphics."
+      content="Explore Heng Wei Yi's project universe, from Unity games and OpenGL graphics to parallel QOI encoding, machine learning, and Android development."
     />
     <title>Heng Wei Yi · Game Development Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,11 +15,11 @@
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Geist:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=lowpoly-worlds-1" />
-    <script src="projects.js" defer></script>
-    <script src="portfolio.js?v=lowpoly-worlds-1" defer></script>
-    <script src="cosmos.js?v=lowpoly-worlds-1" defer></script>
-    <script src="world-renderer.js?v=lowpoly-worlds-1" type="module"></script>
+    <link rel="stylesheet" href="style.css?v=eight-worlds-1" />
+    <script src="projects.js?v=eight-worlds-1" defer></script>
+    <script src="portfolio.js?v=eight-worlds-1" defer></script>
+    <script src="cosmos.js?v=eight-worlds-1" defer></script>
+    <script src="world-renderer.js?v=eight-worlds-1" type="module"></script>
   </head>
   <body>
     <canvas id="starfield" aria-hidden="true"></canvas>
@@ -87,7 +87,7 @@
           <div class="system-orbits" aria-hidden="true">
             <i></i><i></i><i></i>
           </div>
-          <div id="world-scene" aria-hidden="true"></div>
+          <div id="world-scene" class="world-scene" aria-hidden="true"></div>
 
           <a
             class="planet-project planet-calculus"
@@ -170,9 +170,122 @@
             >
           </a>
         </div>
-        <a class="hero-scroll" href="#about"
-          ><span aria-hidden="true"></span>Meet the developer</a
+        <a class="hero-scroll" href="#more-worlds"
+          ><span aria-hidden="true"></span>More project worlds</a
         >
+      </section>
+
+      <section
+        id="more-worlds"
+        class="more-worlds wrap"
+        aria-labelledby="more-worlds-title"
+      >
+        <div class="more-worlds-intro">
+          <div>
+            <p class="eyebrow">Systems, AI & mobile</p>
+            <h2 id="more-worlds-title">
+              Further into my universe<span class="accent">.</span>
+            </h2>
+          </div>
+          <p>
+            More things I've explored.<br />Select a planet to take a closer
+            look.
+          </p>
+        </div>
+        <div
+          class="project-system project-system-extra"
+          role="group"
+          aria-label="Explore four more project planets"
+        >
+          <div class="system-orbits" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </div>
+          <div class="world-scene" aria-hidden="true"></div>
+          <a
+            class="planet-project planet-qoi"
+            href="?project=parallel-qoi"
+            data-project="parallel-qoi"
+            aria-label="Explore Parallel QOI, an image processing station on a copper planet"
+          >
+            <span class="planet-target" aria-hidden="true"
+              ><img
+                class="planet-art"
+                src="assets/lowpoly-qoi.webp"
+                alt=""
+                width="768"
+                height="768"
+            /></span>
+            <span class="planet-label"
+              ><span class="planet-type">Parallel computing</span
+              ><strong>Parallel QOI</strong
+              ><span class="planet-tools">C++ · OpenMP · CUDA · MPI</span></span
+            >
+          </a>
+          <a
+            class="planet-project planet-flyme"
+            href="?project=fly-me-to-the-earth"
+            data-project="fly-me-to-the-earth"
+            aria-label="Explore Fly Me 2 The Earth, a rocket launchpad on a violet moon"
+          >
+            <span class="planet-target" aria-hidden="true"
+              ><img
+                class="planet-art"
+                src="assets/lowpoly-flyme.webp"
+                alt=""
+                width="768"
+                height="768"
+            /></span>
+            <span class="planet-label"
+              ><span class="planet-type">Game programming</span
+              ><strong>Fly Me 2 The Earth</strong
+              ><span class="planet-tools">C++ · DirectX 9 · FMOD</span></span
+            >
+          </a>
+          <a
+            class="planet-project planet-spam"
+            href="?project=spam-classifier"
+            data-project="spam-classifier"
+            aria-label="Explore Spam Message Classifier, a mail sorting station on an indigo planet"
+          >
+            <span class="planet-target" aria-hidden="true"
+              ><img
+                class="planet-art"
+                src="assets/lowpoly-spam.webp"
+                alt=""
+                width="768"
+                height="768"
+            /></span>
+            <span class="planet-label"
+              ><span class="planet-type">Artificial intelligence</span
+              ><strong>Spam Message Classifier</strong
+              ><span class="planet-tools"
+                >Python · scikit-learn · Tkinter</span
+              ></span
+            >
+          </a>
+          <a
+            class="planet-project planet-eoe"
+            href="?project=eoe-customer-support"
+            data-project="eoe-customer-support"
+            aria-label="Explore EOE Customer Support, a mobile support station on a teal planet"
+          >
+            <span class="planet-target" aria-hidden="true"
+              ><img
+                class="planet-art"
+                src="assets/lowpoly-eoe.webp"
+                alt=""
+                width="768"
+                height="768"
+            /></span>
+            <span class="planet-label"
+              ><span class="planet-type">Android development</span
+              ><strong>EOE Customer Support</strong
+              ><span class="planet-tools"
+                >Kotlin · Compose · Firebase</span
+              ></span
+            >
+          </a>
+        </div>
       </section>
 
       <section

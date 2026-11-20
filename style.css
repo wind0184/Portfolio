@@ -1208,18 +1208,129 @@ dialog[open] {
   }
 }
 
-#world-scene {
+.world-scene {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
   z-index: -1;
 }
-#world-scene canvas {
+.world-scene canvas {
   display: block;
   width: 100%;
   height: 100%;
 }
-.lowpoly-ready .planet-art {
+.project-system.lowpoly-ready .planet-art {
   visibility: hidden;
+}
+
+.more-worlds {
+  padding-block: 65px 85px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 90px;
+}
+.more-worlds-intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+}
+.more-worlds-intro h2 {
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  margin-bottom: 0;
+}
+.more-worlds-intro > p {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0;
+}
+.project-system-extra {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: 460px;
+  margin-top: 25px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: 1fr;
+  gap: 20px;
+}
+.project-system-extra .planet-project {
+  --size: 225px;
+  position: relative;
+  inset: auto;
+  width: 100%;
+  transform: none;
+  align-self: center;
+}
+.project-system-extra .planet-project:nth-of-type(odd) {
+  translate: 0 25px;
+}
+.planet-qoi {
+  --planet-color: #e4b18b;
+}
+.planet-flyme {
+  --planet-color: #cfb5e2;
+}
+.planet-spam {
+  --planet-color: #9aafe8;
+}
+.planet-eoe {
+  --planet-color: #91d6cc;
+}
+.project-system-extra .system-orbits i {
+  top: 29%;
+  left: 2%;
+  width: 96%;
+  height: 45%;
+  transform: rotate(-5deg);
+}
+.project-system-extra .system-orbits i:nth-child(2) {
+  top: 21%;
+  left: -10%;
+  width: 120%;
+  height: 62%;
+}
+.project-system-extra .system-orbits i:nth-child(3) {
+  display: none;
+}
+.detail-side .repository-note {
+  font-size: 13px;
+  margin-block: 12px 0;
+  color: var(--muted);
+}
+@media (max-width: 1000px) {
+  .more-worlds-intro {
+    display: block;
+  }
+  .more-worlds-intro > p {
+    margin-top: 20px;
+  }
+  .project-system-extra {
+    height: 770px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 1fr 1fr;
+    gap: 25px 30px;
+  }
+  .project-system-extra .planet-project {
+    --size: 220px;
+  }
+  .project-system-extra .planet-project:nth-of-type(odd) {
+    translate: none;
+  }
+}
+@media (max-width: 600px) {
+  .more-worlds {
+    padding-block: 40px 50px;
+  }
+  .project-system-extra {
+    height: 660px;
+    gap: 25px 18px;
+  }
+  .project-system-extra .planet-project {
+    --size: 145px;
+  }
 }

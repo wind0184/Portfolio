@@ -54,7 +54,7 @@ function renderProject(project) {
       button.setAttribute("aria-pressed", String(buttonIndex === index)),
     );
   }
-  showImage(0);
+  if (project.images.length) showImage(0);
   if (buttons.length > 1) gallery.append(thumbs);
 
   const copy = document.createElement("div");
@@ -85,17 +85,26 @@ function renderProject(project) {
   repo.rel = "noopener";
   repo.textContent = project.repoLabel;
   side.append(roleLabel, role, focus, repo);
+  if (project.repoNote) {
+    const note = document.createElement("p");
+    note.className = "repository-note";
+    note.textContent = project.repoNote;
+    side.append(note);
+  }
   if (project.credit) {
     const credit = document.createElement("a");
     credit.className = "image-credit";
     credit.href = project.credit;
     credit.target = "_blank";
     credit.rel = "noopener";
-    credit.textContent = "Team screenshots · Khoo Kah Qin";
+    credit.textContent =
+      project.creditLabel || "Team screenshots · Khoo Kah Qin";
     side.append(credit);
   }
   copy.append(features, side);
-  detail.append(header, gallery, copy);
+  detail.append(header);
+  if (project.images.length) detail.append(gallery);
+  detail.append(copy);
 }
 
 function openProject(id, updateUrl = true) {
