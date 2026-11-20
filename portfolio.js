@@ -99,8 +99,8 @@ function renderProject(project) {
 }
 
 function openProject(id, updateUrl = true) {
+  if (!Object.hasOwn(window.portfolioProjects, id)) return;
   const project = window.portfolioProjects[id];
-  if (!project) return;
   previousFocus = document.activeElement;
   renderProject(project);
   if (!dialog.open) dialog.showModal();
@@ -154,7 +154,7 @@ dialog.addEventListener("close", () => {
 });
 window.addEventListener("popstate", () => {
   const id = new URL(window.location.href).searchParams.get("project");
-  if (window.portfolioProjects[id]) openProject(id, false);
+  if (Object.hasOwn(window.portfolioProjects, id)) openProject(id, false);
   else if (dialog.open) dialog.close();
 });
 const initialProject = new URL(window.location.href).searchParams.get(
