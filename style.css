@@ -962,26 +962,26 @@ dialog::backdrop {
 .planet-calculus {
   --x: 31%;
   --y: 34%;
-  --size: 215px;
-  --planet-color: #85b7ff;
+  --size: 220px;
+  --planet-color: #8de2bd;
 }
 .planet-fishing {
   --x: 78%;
   --y: 20%;
-  --size: 125px;
-  --planet-color: #7cdccd;
+  --size: 170px;
+  --planet-color: #8acbff;
 }
 .planet-weather {
   --x: 78%;
   --y: 71%;
-  --size: 158px;
-  --planet-color: #c4a4f1;
+  --size: 180px;
+  --planet-color: #e0e9db;
 }
 .planet-robot {
   --x: 33%;
   --y: 83%;
-  --size: 110px;
-  --planet-color: #d3a293;
+  --size: 150px;
+  --planet-color: #efb47c;
 }
 .planet-target {
   display: block;
@@ -1003,30 +1003,19 @@ dialog::backdrop {
     0 0 30px #689fe332;
   position: relative;
 }
-.planet-fishing .planet-target {
-  filter: hue-rotate(-40deg);
+.planet-calculus .planet-target {
+  filter: hue-rotate(-45deg);
 }
 .planet-weather .planet-target {
-  filter: hue-rotate(60deg);
+  filter: saturate(0.3) brightness(1.5);
 }
 .planet-robot .planet-target {
-  filter: hue-rotate(155deg) saturate(0.55);
-}
-.planet-fishing .planet-target::after {
-  content: "";
-  position: absolute;
-  inset: 30% -28%;
-  border: 9px solid #88cfc955;
-  border-radius: 50%;
-  transform: rotate(-28deg);
+  filter: saturate(0.15) brightness(0.9);
 }
 .webgl-ready .planet-target {
   background: transparent;
   box-shadow: none;
   filter: none;
-}
-.webgl-ready .planet-fishing .planet-target::after {
-  display: none;
 }
 .planet-label {
   display: block;
@@ -1103,13 +1092,13 @@ dialog[open] {
     --size: 180px;
   }
   .planet-fishing {
-    --size: 105px;
+    --size: 150px;
   }
   .planet-weather {
-    --size: 135px;
+    --size: 160px;
   }
   .planet-robot {
-    --size: 95px;
+    --size: 135px;
   }
   .planet-label strong {
     font-size: 15px;
@@ -1150,17 +1139,17 @@ dialog[open] {
   .planet-fishing {
     --x: 77%;
     --y: 20%;
-    --size: 120px;
+    --size: 150px;
   }
   .planet-weather {
     --x: 75%;
     --y: 71%;
-    --size: 150px;
+    --size: 160px;
   }
   .planet-robot {
     --x: 28%;
     --y: 78%;
-    --size: 110px;
+    --size: 140px;
   }
 }
 @media (max-width: 600px) {
@@ -1187,16 +1176,16 @@ dialog[open] {
     align-self: center;
   }
   .planet-calculus {
-    --size: 140px;
+    --size: 145px;
   }
   .planet-fishing {
-    --size: 105px;
+    --size: 135px;
   }
   .planet-weather {
-    --size: 127px;
+    --size: 140px;
   }
   .planet-robot {
-    --size: 105px;
+    --size: 130px;
   }
   .planet-label {
     margin-top: 20px;

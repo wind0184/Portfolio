@@ -1,4 +1,5 @@
 import * as THREE from "./vendor/three.module.js";
+import { createProjectLandmarks } from "./planet-landmarks.js";
 
 const starCanvas = document.getElementById("starfield");
 const starContext = starCanvas.getContext("2d");
@@ -73,8 +74,8 @@ function surfaceMaterial(kind, tint) {
   const weather = kind === "weather";
   return new THREE.ShaderMaterial({
     uniforms: {
-      darkColor: { value: new THREE.Color(weather ? "#6c5a8b" : "#343d4a") },
-      lightColor: { value: new THREE.Color(weather ? "#ded1f0" : "#b08066") },
+      darkColor: { value: new THREE.Color(weather ? "#496879" : "#263545") },
+      lightColor: { value: new THREE.Color(weather ? "#d6e7ec" : "#8a9aa7") },
       cloudBands: { value: weather ? 1 : 0 },
     },
     vertexShader: `
@@ -170,19 +171,18 @@ function createPlanetSystem() {
   const configurations = {
     "calculus-lab-escape": {
       kind: "ocean",
-      tint: 0xc2ddff,
-      glow: "#568aff",
+      tint: 0x73ffc1,
+      glow: "#69e2bf",
       tilt: -0.12,
     },
     "vr-fishing": {
       kind: "ocean",
-      tint: 0x63fbd1,
-      glow: "#63d5c4",
-      tilt: -0.38,
-      rings: true,
+      tint: 0xc0e5ff,
+      glow: "#68b7f4",
+      tilt: -0.12,
     },
-    "weather-simulation": { kind: "weather", glow: "#ad8be0", tilt: -0.15 },
-    "interactive-robot": { kind: "rock", glow: "#a57862", tilt: 0.22 },
+    "weather-simulation": { kind: "weather", glow: "#b3dfed", tilt: -0.1 },
+    "interactive-robot": { kind: "rock", glow: "#e2ab79", tilt: 0.05 },
   };
   for (const anchor of document.querySelectorAll(".planet-project")) {
     const configuration = configurations[anchor.dataset.project];
@@ -198,21 +198,7 @@ function createPlanetSystem() {
         atmosphereMaterial(configuration.glow),
       ),
     );
-    if (configuration.rings) {
-      const ring = new THREE.Mesh(
-        new THREE.RingGeometry(1.25, 1.72, 100),
-        new THREE.MeshBasicMaterial({
-          color: 0x84d9d1,
-          side: THREE.DoubleSide,
-          transparent: true,
-          opacity: 0.27,
-          depthWrite: false,
-        }),
-      );
-      ring.rotation.x = 1.15;
-      ring.rotation.y = 0.2;
-      group.add(ring);
-    }
+    group.add(createProjectLandmarks(anchor.dataset.project));
     scene.add(group);
     planetEntries.push({
       anchor,
