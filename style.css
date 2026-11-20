@@ -907,18 +907,7 @@ dialog::backdrop {
   scroll-margin-top: 25px;
   isolation: isolate;
 }
-#planet-scene {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: -1;
-}
-#planet-scene canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
+
 .system-orbits {
   position: absolute;
   inset: 0;
@@ -954,7 +943,7 @@ dialog::backdrop {
   position: absolute;
   left: var(--x);
   top: var(--y);
-  width: 230px;
+  width: 270px;
   transform: translate(-50%, -50%);
   text-align: center;
   -webkit-tap-highlight-color: transparent;
@@ -962,25 +951,25 @@ dialog::backdrop {
 .planet-calculus {
   --x: 31%;
   --y: 34%;
-  --size: 220px;
+  --size: 270px;
   --planet-color: #8de2bd;
 }
 .planet-fishing {
   --x: 78%;
   --y: 20%;
-  --size: 170px;
+  --size: 230px;
   --planet-color: #8acbff;
 }
 .planet-weather {
   --x: 78%;
   --y: 71%;
-  --size: 180px;
+  --size: 230px;
   --planet-color: #e0e9db;
 }
 .planet-robot {
   --x: 33%;
   --y: 83%;
-  --size: 150px;
+  --size: 225px;
   --planet-color: #efb47c;
 }
 .planet-target {
@@ -989,34 +978,44 @@ dialog::backdrop {
   max-width: 100%;
   aspect-ratio: 1;
   margin-inline: auto;
-  border-radius: 50%;
-  background:
-    radial-gradient(
-      circle at 30% 25%,
-      #d4e9ff30,
-      transparent 40%,
-      #030713ed 82%
-    ),
-    url("assets/planet-texture.webp") center/cover;
-  box-shadow:
-    inset -20px -10px 45px #000b,
-    0 0 30px #689fe332;
   position: relative;
 }
-.planet-calculus .planet-target {
-  filter: hue-rotate(-45deg);
+.planet-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 22px #0005);
+  animation: world-drift 7s ease-in-out infinite;
+  transition:
+    scale 0.3s ease,
+    filter 0.3s ease;
 }
-.planet-weather .planet-target {
-  filter: saturate(0.3) brightness(1.5);
+.planet-fishing .planet-art {
+  animation-delay: -1.6s;
 }
-.planet-robot .planet-target {
-  filter: saturate(0.15) brightness(0.9);
+.planet-weather .planet-art {
+  animation-delay: -3.2s;
 }
-.webgl-ready .planet-target {
-  background: transparent;
-  box-shadow: none;
-  filter: none;
+.planet-robot .planet-art {
+  animation-delay: -4.8s;
 }
+.planet-project:hover .planet-art,
+.planet-project:focus-visible .planet-art {
+  animation-play-state: paused;
+  scale: 1.045;
+  filter: drop-shadow(0 15px 28px #8eb9f330);
+}
+@keyframes world-drift {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(1deg);
+  }
+}
+
 .planet-label {
   display: block;
   margin-top: 18px;
@@ -1089,10 +1088,10 @@ dialog[open] {
     width: 190px;
   }
   .planet-calculus {
-    --size: 180px;
+    --size: 230px;
   }
   .planet-fishing {
-    --size: 150px;
+    --size: 225px;
   }
   .planet-weather {
     --size: 160px;
@@ -1139,7 +1138,7 @@ dialog[open] {
   .planet-fishing {
     --x: 77%;
     --y: 20%;
-    --size: 150px;
+    --size: 225px;
   }
   .planet-weather {
     --x: 75%;
