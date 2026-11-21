@@ -252,12 +252,55 @@ window.portfolioProjects = {
     details: [
       "Customer and staff sign-in flows lead to separate support interfaces.",
       "Customers create support tickets with image attachments and view their submitted tickets.",
-      "Staff review tickets using Pending, In Progress, and Resolved status filters.",
+      "Staff reply to ticket comments, update ticket status, and filter Pending, In Progress, and Resolved tickets.",
       "Jetpack Compose screens connect account, ticket, chat, and FAQ features with Firebase services and local Room persistence.",
     ],
     repo: "https://github.com/hahahahaha598/EOE-Customer-Support",
     repoLabel: "Private GitHub repository",
     repoNote: "Repository access is required to view the source.",
-    images: [],
+    mediaFormat: "portrait",
+    video: {
+      src: "assets/eoe-demo.mp4",
+      poster: "assets/eoe-home.webp",
+      label: "EOE Customer Support customer and staff workflow demonstration",
+      caption:
+        "A one-minute silent walkthrough of customer tickets, staff replies, status updates, and filters.",
+    },
+    images: [
+      {
+        src: "assets/eoe-home.webp",
+        label: "Customer home",
+        alt: "EOE customer home with shortcuts to create a ticket, view tickets, and get help",
+        caption:
+          "The customer home brings support actions together in one place.",
+      },
+      {
+        src: "assets/eoe-create-ticket.webp",
+        label: "Create ticket",
+        alt: "EOE ticket creation form with question type, description, and image attachment fields",
+        caption:
+          "Customers describe their issue and attach an image when creating a ticket.",
+      },
+      {
+        src: "assets/eoe-my-tickets.webp",
+        label: "My tickets",
+        alt: "The customer's submitted tickets with Pending, Resolved, and In Progress status labels",
+        caption:
+          "Customers can check the status of their submitted support requests.",
+      },
+      {
+        src: "assets/eoe-staff-workflow.webp",
+        label: "Staff reply",
+        alt: "Staff ticket detail with customer and staff comments and an In Progress status control",
+        caption:
+          "Staff reply to a ticket and update its status within the detail screen.",
+      },
+      {
+        src: "assets/eoe-staff-dashboard.webp",
+        label: "Staff dashboard",
+        alt: "The staff dashboard with Pending, In Progress, and Resolved ticket shortcuts",
+        caption: "The staff dashboard groups support work by ticket status.",
+      },
+    ],
   },
 };

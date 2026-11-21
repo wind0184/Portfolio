@@ -4,7 +4,12 @@ const dialog = document.getElementById("project-dialog");
 const detail = document.getElementById("project-detail");
 let previousFocus = null;
 
+function pauseProjectMedia() {
+  detail.querySelectorAll("video").forEach((video) => video.pause());
+}
+
 function renderProject(project) {
+  pauseProjectMedia();
   detail.replaceChildren();
   const header = document.createElement("header");
   header.className = "detail-header";
@@ -25,17 +30,42 @@ function renderProject(project) {
   gallery.className = "detail-gallery";
   const frame = document.createElement("div");
   frame.className = "gallery-frame";
+  if (project.mediaFormat === "portrait")
+    frame.classList.add("gallery-frame--portrait");
   const image = document.createElement("img");
-  image.width = 1280;
-  image.height = 720;
+  image.width = project.mediaFormat === "portrait" ? 720 : 1280;
+  image.height = project.mediaFormat === "portrait" ? 1464 : 720;
   frame.append(image);
+  let video = null;
+  if (project.video) {
+    video = document.createElement("video");
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "none";
+    video.src = project.video.src;
+    video.poster = project.video.poster;
+    video.setAttribute("aria-label", project.video.label);
+    const fallback = document.createElement("a");
+    fallback.href = project.video.src;
+    fallback.textContent = "Open the recorded demo";
+    video.append(fallback);
+    frame.append(video);
+  }
   const caption = document.createElement("p");
   caption.className = "gallery-caption";
   caption.setAttribute("aria-live", "polite");
   gallery.append(frame, caption);
   const thumbs = document.createElement("div");
   thumbs.className = "gallery-thumbs";
-  thumbs.setAttribute("aria-label", "Project screenshots");
+  thumbs.setAttribute("aria-label", "Project media");
+  let videoButton = null;
+  if (video) {
+    videoButton = document.createElement("button");
+    videoButton.type = "button";
+    videoButton.textContent = "Watch demo";
+    videoButton.addEventListener("click", showVideo);
+    thumbs.append(videoButton);
+  }
   const buttons = project.images.map((screenshot, index) => {
     const button = document.createElement("button");
     button.type = "button";
@@ -46,6 +76,12 @@ function renderProject(project) {
     return button;
   });
   function showImage(index) {
+    if (video) {
+      video.pause();
+      video.hidden = true;
+      videoButton.setAttribute("aria-pressed", "false");
+    }
+    image.hidden = false;
     const screenshot = project.images[index];
     image.src = screenshot.src;
     image.alt = screenshot.alt;
@@ -54,8 +90,16 @@ function renderProject(project) {
       button.setAttribute("aria-pressed", String(buttonIndex === index)),
     );
   }
-  if (project.images.length) showImage(0);
-  if (buttons.length > 1) gallery.append(thumbs);
+  function showVideo() {
+    image.hidden = true;
+    video.hidden = false;
+    caption.textContent = project.video.caption;
+    videoButton.setAttribute("aria-pressed", "true");
+    buttons.forEach((button) => button.setAttribute("aria-pressed", "false"));
+  }
+  if (video) showVideo();
+  else if (project.images.length) showImage(0);
+  if (buttons.length + (video ? 1 : 0) > 1) gallery.append(thumbs);
 
   const copy = document.createElement("div");
   copy.className = "detail-copy";
@@ -103,7 +147,7 @@ function renderProject(project) {
   }
   copy.append(features, side);
   detail.append(header);
-  if (project.images.length) detail.append(gallery);
+  if (project.images.length || project.video) detail.append(gallery);
   detail.append(copy);
 }
 
@@ -152,6 +196,7 @@ dialog.addEventListener("click", (event) => {
     dialog.close();
 });
 dialog.addEventListener("close", () => {
+  pauseProjectMedia();
   document.body.classList.remove("dialog-open");
   const url = new URL(window.location.href);
   if (url.searchParams.has("project")) {

@@ -574,6 +574,25 @@ dialog::backdrop {
   aspect-ratio: 16/9;
   object-fit: contain;
 }
+.gallery-frame--portrait {
+  display: grid;
+  place-items: center;
+  height: min(620px, 72svh);
+  background: radial-gradient(ellipse at center, #19343e, #070e1b 75%);
+}
+.gallery-frame--portrait img,
+.gallery-frame--portrait video {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  max-height: min(620px, 72svh);
+  aspect-ratio: 720 / 1464;
+  object-fit: contain;
+}
+.gallery-frame [hidden] {
+  display: none;
+}
 .gallery-caption {
   color: var(--muted);
   font-size: 13px;
